@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { RiErrorWarningLine } from "react-icons/ri";
-import { BiErrorCircle } from "react-icons/bi";
 
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const navigate = useNavigate();
+
 
     const [
         signInWithEmailAndPassword,
