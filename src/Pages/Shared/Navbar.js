@@ -1,10 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from "../../firebase.init"
+import { signOut } from 'firebase/auth';
+import { RiUserFill } from "react-icons/ri";
 
 const Navbar = () => {
+    const [user, loading, error] = useAuthState(auth);
+    const handleSignout = () => {
+        signOut(auth);
+    }
     const navItems = <>
-        <li><Link to='/login'>Login</Link></li>
+        {
+            user ? <li><Link onClick={handleSignout} to='/login'>
+                Signout
+                <div class="text-sm opacity-750">{user?.displayName ||<RiUserFill/>}</div>
+            </Link> </li>
+                : <li><Link to='/login'>Login</Link></li>
+        }
+        {/* {
+            user.displayName && <li>{user.displayName}</li>
+        } */}
     </>;
+
+    if (loading) {
+        return (<p className='text-primary'>Loading....</p>)
+    }
+
+
     return (
         <div class="navbar bg-base-100">
             <div class="navbar-start">
