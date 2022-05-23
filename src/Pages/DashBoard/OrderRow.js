@@ -6,7 +6,7 @@ const OrderRow = ({ order, index, setDeleteorder, refetch }) => {
             <th>{index + 1}</th>
             <td>{order.productName}</td>
             <td>{order.totalPrice}</td>
-            <td><button class="btn btn-xs">PAAY</button></td>
+            <td><button class="btn btn-xs">PAY</button></td>
             <td>
                 <label onClick={() => setDeleteorder(order)} for="my-modal-6" class="btn btn-xs">CANCEL</label>
             </td>
@@ -15,4 +15,3 @@ const OrderRow = ({ order, index, setDeleteorder, refetch }) => {
 };
 
 export default OrderRow;
-{/* <button class="btn btn-xs">CANCEL</button> */ }

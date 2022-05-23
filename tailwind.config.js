@@ -6,6 +6,8 @@ module.exports = {
     extend: {
       backgroundImage:{
         'banner':"url('/src/assets/images/banner.jpg')",
+        'review':"url('/src/assets/images/review.svg')",
+        'deal':"url('/src/assets/images/deal.svg')",
     },
     },
   },

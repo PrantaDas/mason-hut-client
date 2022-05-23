@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaStar } from "react-icons/fa";
+import { FaStar,FaUserCircle } from "react-icons/fa";
 
 const ReviewCard = ({ r }) => {
     const { name, review, img,rating } = r;
@@ -9,7 +9,7 @@ const ReviewCard = ({ r }) => {
                 <div className='py-2 flex items-center'>
                     <div class="avatar online">
                         <div class="w-16 rounded-full ring ring-primary">
-                            <img src={img} alt=''/>
+                            <img src={img ? img : <FaUserCircle/>} alt=''/>
                         </div>
                     </div>
                     <div className='ml-4'>

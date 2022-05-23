@@ -79,7 +79,7 @@ const PurchaseTools = () => {
             totalPrice: price,
             address: event.target.address.value,
             number: event.target.pnumber.value,
-            paid:false
+            paid: false
         };
         console.log(order);
 
@@ -117,7 +117,7 @@ const PurchaseTools = () => {
 
     // console.log(tool);
     return (
-        <div className='min-h-screen'>
+        <div className='min-h-screen '>
             <h1 className='text-3xl font-bold text-primary mb-16'>Provide Necessary Info. for Checkout</h1>
             <div class="divider my-5"></div>
             <div className='max-w-screen-2xl lg:flex lg:justify-center items-center'>
@@ -137,12 +137,14 @@ const PurchaseTools = () => {
 
                     </div>
                 </div>
-                <div><ul class="steps steps-vertical lg:steps-horizontal">
-                    <li class="step step-secondary">Register</li>
-                    <li class="step step-secondary">Choose Product</li>
-                    <li class="step">Place Order</li>
-                    <li class="step">Receive Product</li>
-                </ul></div>
+                <div>
+                    <ul class="steps steps-vertical lg:steps-horizontal">
+                        <li class="step step-secondary">Register</li>
+                        <li class="step step-secondary">Choose Product</li>
+                        <li class="step">Place Order</li>
+                        <li class="step">Receive Product</li>
+                    </ul>
+                </div>
                 <div className='card shadow-xl w-96 mx-auto'>
                     <h2 className='font-bold text-2xl my-3'>Order Inormation</h2>
                     <form className='px-7' onSubmit={handlePlaceOrder}>
