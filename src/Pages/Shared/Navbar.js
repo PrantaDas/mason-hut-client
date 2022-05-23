@@ -9,6 +9,9 @@ const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
     const handleSignout = () => {
         signOut(auth);
+    };
+    if (loading) {
+        return (<p className='text-primary'>Loading....</p>)
     }
     const navItems = <>
 
@@ -26,9 +29,7 @@ const Navbar = () => {
 
     </>;
 
-    if (loading) {
-        return (<p className='text-primary'>Loading....</p>)
-    }
+
 
 
     return (

@@ -19,7 +19,7 @@ const ReviewCard = ({ r }) => {
                     <div class="divider divider-horizontal bg-purple-900"></div>
                     <div className='flex flex-col items-start'>
                     <p className='font-bold text-justify'>{review}</p>
-                    <p className='font-semibold text-primary'>Rating: <span className='text-black'>{rating}</span> <FaStar className='inline text-secondary pb-1'/> </p>
+                    <p className='font-semibold text-purple-600'>Rating: <span className='text-black'>{rating}</span> <FaStar className='inline text-secondary pb-1'/> </p>
                     </div>
                 </div>
             </div>

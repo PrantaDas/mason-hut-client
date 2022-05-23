@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import auth from '../../firebase.init';
 import ConfrimationModal from './ConfrimationModal';
 import OrderRow from './OrderRow';
 
 const MyOrder = () => {
     const [deleteOrder, setDeleteorder] = useState(null);
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/order', {
+    
+    const [user, loading] = useAuthState(auth);
+    
+
+    const email=user?.email;
+
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/myorder?email=${email}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -13,7 +21,7 @@ const MyOrder = () => {
         }
     }).then(res => res.json()));
 
-    if (isLoading) {
+    if (isLoading ||loading) {
         return (<p className='text-primary'>Loading....</p>)
     };
 
@@ -31,7 +39,7 @@ const MyOrder = () => {
                 </thead>
                 <tbody>
                     {
-                        orders.map((order,index)=><OrderRow key={order._id} order={order} index={index} refetch={refetch} setDeleteorder={setDeleteorder} deleteOrder={deleteOrder}></OrderRow>)
+                        orders.map((order, index) => <OrderRow key={order._id} order={order} index={index} refetch={refetch} setDeleteorder={setDeleteorder} deleteOrder={deleteOrder}></OrderRow>)
                     }
                 </tbody>
             </table>
