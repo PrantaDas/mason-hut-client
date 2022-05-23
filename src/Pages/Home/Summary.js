@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaUserFriends, FaHandHoldingUsd } from "react-icons/fa";
 import { IoHammerSharp, IoAdd } from "react-icons/io5";
-import { FaIdeal } from "react-icons/fa";
+import { FaIdeal,FaTools } from "react-icons/fa";
 
 const Summary = () => {
     return (
@@ -32,7 +32,7 @@ const Summary = () => {
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <div class="card-body stat">
                         <div class="stat-figure text-primary">
-                            <IoHammerSharp className=' w-14 h-14' />
+                            <FaTools className=' w-14 h-14' />
                         </div>
                         <div class="stat-title">Available tools</div>
                         <div class="stat-value text-primary">300+</div>
