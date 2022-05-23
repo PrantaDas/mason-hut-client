@@ -1,7 +1,8 @@
 import React from 'react';
+import { FaStar } from "react-icons/fa";
 
 const ReviewCard = ({ r }) => {
-    const { name, review, img } = r;
+    const { name, review, img,rating } = r;
     return (
         <div className="card lg:max-w-lg bg-base-100 shadow-xl border border-r-teal-300">
             <div className="card-body">
@@ -16,7 +17,10 @@ const ReviewCard = ({ r }) => {
                         <p className='font-bold text-left'></p>
                     </div>
                     <div class="divider divider-horizontal bg-purple-900"></div>
+                    <div className='flex flex-col items-start'>
                     <p className='font-bold text-justify'>{review}</p>
+                    <p className='font-semibold text-primary'>Rating: <span className='text-black'>{rating}</span> <FaStar className='inline text-secondary pb-1'/> </p>
+                    </div>
                 </div>
             </div>
         </div>
