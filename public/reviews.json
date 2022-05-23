@@ -1,0 +1,39 @@
+[
+    {
+        "name": "John",
+        "review": "Very satisfying to deal with the provider.",
+        "img": "https://api.lorem.space/image/face?hash=80245",
+        "email": "john@gmail.com"
+    },
+    {
+        "name": "Karie",
+        "review": "Sophisticated service compare to others",
+        "img": "https://api.lorem.space/image/face?hash=80245",
+        "email": "karie@gmail.com"
+    },
+    {
+        "name": "Katie",
+        "review": "The cheap price and products quality is awesome",
+        "img": "https://api.lorem.space/image/face?hash=80245",
+        "email": "katie@gmail.com"
+    },
+    {
+        "name": "Rock",
+        "review": "Easy to interact with the features and processes",
+        "img": "https://api.lorem.space/image/face?hash=80245",
+        "email": "rock@gmail.com"
+    },
+    {
+        "name": "Will",
+        "review": "The product arrival is more faster than any other provider",
+        "img": "https://api.lorem.space/image/face?hash=80245",
+        "email": "will@gmail.com"
+    },
+    {
+        "name": "Smith",
+        "review": "The payment system and the security concern is so satisfying",
+        "img": "https://api.lorem.space/image/face?hash=80245",
+        "email": "smith@gmail.com"
+    }
+ 
+]
