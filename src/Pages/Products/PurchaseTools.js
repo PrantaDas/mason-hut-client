@@ -39,7 +39,9 @@ const PurchaseTools = () => {
 
     const qty = (event) => {
         givenQuantity = parseInt(event.target.value);
+
         setUserQuantity(givenQuantity);
+
         console.log(givenQuantity);
 
         if (givenQuantity < minOrderQuantity) {
@@ -76,7 +78,8 @@ const PurchaseTools = () => {
             orderQuantity: userQuantity,
             totalPrice: price,
             address: event.target.address.value,
-            number: event.target.pnumber.value
+            number: event.target.pnumber.value,
+            paid:false
         };
         console.log(order);
 
@@ -179,7 +182,7 @@ const PurchaseTools = () => {
                             <input type="text" placeholder="Type here" name='pnumber' required class="input input-bordered w-full max-w-xs" />
                         </div>
                         <div class="card-actions text-center w-full max-w-xs my-3" >
-                            <button class="btn btn-block" disabled={!userQuantity || userQuantity <= minOrderQuantity || userQuantity > availableQuantity}>Place order</button>
+                            <button class="btn btn-block" disabled={!userQuantity || userQuantity < minOrderQuantity || userQuantity > availableQuantity}>Place order</button>
                         </div>
                     </form>
                 </div>
@@ -189,5 +192,3 @@ const PurchaseTools = () => {
 };
 
 export default PurchaseTools;
-
-// disabled={userQuantity < minOrderQuantity || userQuantity > availableQuantity}

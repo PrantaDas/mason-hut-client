@@ -8,6 +8,9 @@ import Footer from './Pages/Shared/Footer';
 import Tools from './Pages/Home/Tools';
 import PurchaseTools from './Pages/Products/PurchaseTools';
 import RequireAuth from './Pages/Authentication/RequireAuth';
+import MyOrder from './Pages/DashBoard/MyOrder';
+import DashBoard from './Pages/DashBoard/DashBoard';
+
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
         <Route path='/tools/:id' element={<RequireAuth>
           <PurchaseTools></PurchaseTools>
         </RequireAuth>}></Route>
+        <Route path='/dashboard' element={<DashBoard></DashBoard>}>
+          <Route index element={<MyOrder></MyOrder>}></Route>
+        </Route>
       </Routes>
       <Footer></Footer>
     </div>
