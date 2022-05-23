@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { RiErrorWarningLine } from "react-icons/ri";
 import { BiErrorCircle } from "react-icons/bi";
+import useToken from '../Hooks/useToken';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const location = useLocation();
 
     const navigate = useNavigate();
     const [
@@ -19,6 +22,10 @@ const SignUp = () => {
 
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
 
+    let from = location.state?.from?.pathname || "/";
+
+    const [token] = useToken(user || guser);
+
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
     const onSubmit = async data => {
@@ -29,6 +36,11 @@ const SignUp = () => {
 
     const handleSigininWithGoogle = () => {
         signInWithGoogle();
+    };
+
+    if (token) {
+        // navigate('/');
+        navigate(from, { replace: true });
     }
 
     if (loading || gloading) {
@@ -37,7 +49,6 @@ const SignUp = () => {
 
     if (user || guser) {
         console.log(user || guser);
-        navigate('/')
     };
 
     if (error || gerror) {
@@ -49,14 +60,14 @@ const SignUp = () => {
     if (error) {
         const errorMessage = error?.message;
         if (errorMessage.includes('auth/email-already-in-use')) {
-            signinError = <small className='text-error'><BiErrorCircle className='inline'/> An account already exist with the email</small>;
+            signinError = <small className='text-error'><BiErrorCircle className='inline' /> An account already exist with the email</small>;
         }
     };
 
     if (gerror) {
         const errorMessage = gerror?.message;
         if (errorMessage.includes('auth/popup-closed-by-user')) {
-            signinError = <small className='text-error'><RiErrorWarningLine className='inline'/> Failed! Popup closed by user</small>;
+            signinError = <small className='text-error'><RiErrorWarningLine className='inline' /> Failed! Popup closed by user</small>;
         }
     };
     return (

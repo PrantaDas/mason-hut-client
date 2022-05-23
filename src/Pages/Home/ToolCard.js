@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ToolCard = ({ tool }) => {
-    const { id, name, img, description, minOrderQty, availableQty, pricePU } = tool;
+    const { _id, name, img, description, minOrderQty, availableQty, pricePU } = tool;
     return (
         <div class="card w-96 bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">
@@ -16,7 +17,7 @@ const ToolCard = ({ tool }) => {
                 <p><span className='text-success font-bold'>Available Quantity: </span>{availableQty}</p>
                 <p><span className='text-success font-bold'>Price: </span>{pricePU} $<small>(per unit)</small></p>
                 <div class="card-actions">
-                    <button class="btn btn-secondary">Buy Now</button>
+                    <Link to={`/tools/${_id}`}><button class="btn btn-secondary">Buy Now</button></Link>
                 </div>
             </div>
         </div>

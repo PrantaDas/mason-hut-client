@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { RiErrorWarningLine } from "react-icons/ri";
+import useToken from '../Hooks/useToken';
 
 
 const Login = () => {
@@ -11,6 +12,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
+    const location=useLocation();
 
     const [
         signInWithEmailAndPassword,
@@ -20,6 +22,10 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+
+    const [token] = useToken(user || guser);
+
+    let from = location.state?.from?.pathname || "/";
 
     const onSubmit = async data => {
         console.log(data);
@@ -32,13 +38,17 @@ const Login = () => {
 
     if (loading || gloading) {
         return (<p className='text-primary'>Loging In...</p>)
+    };
+
+    if (token) {
+        // navigate('/');
+        navigate(from, { replace: true });
     }
 
     let signInError;
 
     if (user || guser) {
         console.log(user || guser);
-        navigate('/')
     };
 
     if (error || gerror) {
