@@ -1,0 +1,65 @@
+[
+    {
+        "id":1,
+        "name":"Masonry Hammer",
+        "img":"https://api.lorem.space/image/shoes?w=400&h=225",
+        "description":"A masonry hammer is shaped like a claw hammer, having a longer handle and a head, but that is where the similarity stops. The masonry hammers head is also two-sided",
+        "minOrderQty":100,
+        "availableQty":1000,
+        "pricePU":200
+    },
+    {
+        "id":2,
+        "name":"Trowel",
+        "img":"https://api.lorem.space/image/shoes?w=400&h=225",
+        "description":"A trowel is a small pie-shaped tool that is attached to a small handle. It is used to pick up mortar and spread it onto the brick you are about to put in place.",
+        "minOrderQty":100,
+        "availableQty":1000,
+        "pricePU":334
+    },
+    {
+        "id":3,
+        "name":"Masonry Saws",
+        "img":"https://api.lorem.space/image/shoes?w=400&h=225",
+        "description":"The masonry hand saw looks a lot like a standard hand saw, but it has longer blades and larger teeth. The blade on this saw is only six to seven inches tall",
+        "minOrderQty":100,
+        "availableQty":1000,
+        "pricePU":432
+    },
+    {
+        "id":4,
+        "name":"Power Saw",
+        "img":"https://api.lorem.space/image/shoes?w=400&h=225",
+        "description":"These saws can either be handheld or mounted to a table and used like a table saw. The table saw makes the cleanest cuts that you can get.",
+        "minOrderQty":100,
+        "availableQty":1000,
+        "pricePU":187
+    },
+    {
+        "id":5,
+        "name":"Masonry Square",
+        "img":"https://api.lorem.space/image/shoes?w=400&h=225",
+        "description":"The masonry square looks like a standard square, but it is usually made of wood or plastic. The square is used at the corner of two perpendicular walls",
+        "minOrderQty":100,
+        "availableQty":1000,
+        "pricePU":412
+    },
+    {
+        "id":6,
+        "name":"Masons Level",
+        "img":"https://api.lorem.space/image/shoes?w=400&h=225",
+        "description":"The masons level looks like a standard level, but it is usually made out of wood or plastic and is very lightweight. These levels, like standard levels, have vials in them",
+        "minOrderQty":100,
+        "availableQty":1000,
+        "pricePU":216
+    },
+    {
+        "id":7,
+        "name":"Tape Measure",
+        "img":"https://api.lorem.space/image/shoes?w=400&h=225",
+        "description":"Tape measures are used to measure out where your walls begin and end, or how large an opening is meant to be.",
+        "minOrderQty":100,
+        "availableQty":1000,
+        "pricePU":341
+    }
+]

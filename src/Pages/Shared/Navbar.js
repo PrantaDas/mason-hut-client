@@ -14,7 +14,7 @@ const Navbar = () => {
         {
             user ? <li><Link onClick={handleSignout} to='/login'>
                 Signout
-                <div class="text-sm opacity-750">{user?.displayName ||<RiUserFill/>}</div>
+                <div class="text-sm opacity-750">{user?.displayName ||<RiUserFill className='inline'/>}</div>
             </Link> </li>
                 : <li><Link to='/login'>Login</Link></li>
         }
