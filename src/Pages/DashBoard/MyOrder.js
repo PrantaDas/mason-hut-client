@@ -1,29 +1,60 @@
-import React, { useState } from 'react';
+import { signOut } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import ConfrimationModal from './ConfrimationModal';
 import OrderRow from './OrderRow';
 
 const MyOrder = () => {
     const [deleteOrder, setDeleteorder] = useState(null);
-    
+
     const [user, loading] = useAuthState(auth);
-    
 
-    const email=user?.email;
+    const navigate = useNavigate();
 
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch(`http://localhost:5000/myorder?email=${email}`, {
+    // const [orders,setOrders]=useState([]);
+
+    // useEffect(()=>{
+    //     const email=user?.email;
+    //     const url=`http://localhost:5000/myorder?email=${email}`;
+    //     fetch(url,{
+    //         method: 'GET',
+    //             headers: {
+    //                 'content-type': 'application/json',
+    //                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+    //             }
+    //     })
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         console.log(data);
+    //         setOrders(data);
+    //     })
+    // },[user])
+
+    const email = user?.email;
+
+    const { data: orders, isLoading, refetch } = useQuery(['orders', email], () => fetch(`http://localhost:5000/myorder?email=${email}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
-    }).then(res => res.json()));
+    }).then(res => {
+        console.log('res', res);
+        if (res.status === 401 || res.status === 403) {
+            signOut(auth);
+            localStorage.removeItem('accessToken');
+            navigate('/login');
+        }
+        return res.json()
+    }));
 
-    if (isLoading ||loading) {
+    if (isLoading || loading) {
         return (<p className='text-primary'>Loading....</p>)
     };
+
 
     return (
         <div class="overflow-x-auto">

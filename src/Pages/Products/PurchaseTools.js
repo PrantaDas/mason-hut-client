@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { BiErrorCircle } from "react-icons/bi";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const PurchaseTools = () => {
     const { id } = useParams();
@@ -12,6 +13,7 @@ const PurchaseTools = () => {
 
     const [userQuantity, setUserQuantity] = useState('');
 
+    
 
     const [user, loading] = useAuthState(auth);
 
@@ -22,7 +24,10 @@ const PurchaseTools = () => {
             'content-type': 'application/json',
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
-    }).then(res => res.json()));
+    }).then(res => {
+        console.log('res', res);
+        return res.json()
+    }));
 
 
 
@@ -39,6 +44,7 @@ const PurchaseTools = () => {
 
     const qty = (event) => {
         givenQuantity = parseInt(event.target.value);
+        console.log(givenQuantity);
 
         setUserQuantity(givenQuantity);
 
@@ -164,12 +170,13 @@ const PurchaseTools = () => {
                             <label class="label">
                                 <span class="label-text">Order Quantity</span>
                             </label>
-                            <input onChange={qty} type="text" placeholder="Min Quantity 100" required name='quantity' class="input input-bordered w-full max-w-xs" />
+                            <input onChange={qty} type="text" placeholder="Min Quantity 100" defaultValue={100} required name='quantity' class="input input-bordered w-full max-w-xs" />
                             <label class="label">
                                 {
                                     orderError && <span class="label-text-alt text-red-500"><BiErrorCircle className='inline mr-2' />{orderError}</span>
                                 }
                             </label>
+                            
                         </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
