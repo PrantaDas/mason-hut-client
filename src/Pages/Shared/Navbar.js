@@ -4,6 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init"
 import { signOut } from 'firebase/auth';
 import { RiUserFill } from "react-icons/ri";
+import { CgProfile } from "react-icons/cg";
+import { MdExitToApp } from "react-icons/md";
 
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -20,14 +22,17 @@ const Navbar = () => {
 
         }
         {
+            user && <li><Link to='/dashboard/myprofile'><CgProfile/>{user.displayName}</Link></li>
+        }
+        {
             user ? <li><Link onClick={handleSignout} to='/login'>
-                Signout
-                <div class="text-sm opacity-750">{user?.displayName || <RiUserFill className='inline' />}</div>
+                Signout<MdExitToApp/>
             </Link> </li>
                 : <li><Link to='/login'>Login</Link></li>
         }
 
     </>;
+
 
 
 

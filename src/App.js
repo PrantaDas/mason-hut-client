@@ -11,6 +11,7 @@ import RequireAuth from './Pages/Authentication/RequireAuth';
 import MyOrder from './Pages/DashBoard/MyOrder';
 import DashBoard from './Pages/DashBoard/DashBoard';
 import AddReview from './Pages/DashBoard/AddReview';
+import MyProfile from './Pages/DashBoard/MyProfile';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path='/dashboard' element={<DashBoard></DashBoard>}>
           <Route index element={<MyOrder></MyOrder>}></Route>
           <Route path='/dashboard/addreview' element={<AddReview></AddReview>}></Route>
+          <Route path='/dashboard/myprofile' element={<MyProfile></MyProfile>}></Route>
         </Route>
       </Routes>
       <Footer></Footer>
