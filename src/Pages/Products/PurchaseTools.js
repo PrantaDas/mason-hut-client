@@ -13,7 +13,7 @@ const PurchaseTools = () => {
 
     const [userQuantity, setUserQuantity] = useState('');
 
-    
+
 
     const [user, loading] = useAuthState(auth);
 
@@ -25,7 +25,7 @@ const PurchaseTools = () => {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => {
-        console.log('res', res);
+        // console.log('res', res);
         return res.json()
     }));
 
@@ -79,6 +79,7 @@ const PurchaseTools = () => {
         };
 
         const order = {
+            name:event.target.name.value,
             productName: tool.name,
             email: user.email,
             orderQuantity: userQuantity,
@@ -117,6 +118,7 @@ const PurchaseTools = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                event.target.reset();
             })
         console.log(givenQuantity);
     };
@@ -176,7 +178,7 @@ const PurchaseTools = () => {
                                     orderError && <span class="label-text-alt text-red-500"><BiErrorCircle className='inline mr-2' />{orderError}</span>
                                 }
                             </label>
-                            
+
                         </div>
                         <div class="form-control w-full max-w-xs">
                             <label class="label">

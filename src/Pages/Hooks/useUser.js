@@ -19,7 +19,7 @@ const useUser=(user)=>{
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     setUsers(data.admin)
                     setUserLoading(false);
                 })

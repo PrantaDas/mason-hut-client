@@ -17,6 +17,7 @@ import Welcome from './Pages/DashBoard/Welcome';
 import AddProducts from './Pages/DashBoard/AddProducts';
 import ManageProducts from './Pages/DashBoard/ManageProducts';
 import NotFound from './Pages/NotFound/NotFound';
+import Payment from './Pages/DashBoard/Payment';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path='/dashboard' element={<DashBoard></DashBoard>}>
           <Route index element={<Welcome></Welcome>}></Route>
           <Route path='/dashboard/myorder' element={<MyOrder></MyOrder>}></Route>
+          <Route path='/dashboard/payment/:id' element={<Payment></Payment>}></Route>
           <Route path='/dashboard/addreview' element={<AddReview></AddReview>}></Route>
           <Route path='/dashboard/myprofile' element={<MyProfile></MyProfile>}></Route>
           <Route path='/dashboard/makeadmin' element={<MakeAdmin></MakeAdmin>}></Route>
