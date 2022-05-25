@@ -18,6 +18,7 @@ const Navbar = () => {
     }
     const navItems = <>
         <li><Link to='/blogs'>Blogs</Link></li>
+        <li><Link to='/myportfolio'>My Portfolio</Link></li>
 
         {
             user && <li><Link to='/dashboard'>Dashboard</Link></li>

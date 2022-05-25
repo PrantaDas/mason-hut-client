@@ -28,7 +28,7 @@ const Blogs = () => {
                     <p>To implement the search the product by name if the product name is unique we can use the 'find' javascript array methods.Using find it wiil loop through every product once it get the first matched product name it will return the product as an object.If there are possibility of having duplicate names we can use the 'filter' method that will return all the matched name product in an array.</p>
                 </div>
                 <div class="card-body">
-                    <h2 class="card-title">Questiion 4.</h2>
+                    <h2 class="card-title">Questiion 5.</h2>
                     <p className='font-bold text-success'>Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts?</p>
                     <p>
                         We know that react, keeps tracking record of all its virtual DOM. Whenever a change happens, all the components are rendered and this new virtual DOM is then compared with the previous virtual DOM. Only the when the changed differences found are then reflected in the original DOM. So,we can understand that if we set the state directly, it will change the reference of the state in the previous virtual DOM as well. So, React will not be able to see that there is a change of the state and so it will not be reflected or rendered in the original DOM until we reload our application.

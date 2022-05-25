@@ -20,6 +20,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Payment from './Pages/DashBoard/Payment';
 import ManageOrders from './Pages/DashBoard/ManageOrders';
 import Blogs from './Pages/Blogs/Blogs';
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path='/dashboard/manageorders' element={<ManageOrders></ManageOrders>}></Route>
         </Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
