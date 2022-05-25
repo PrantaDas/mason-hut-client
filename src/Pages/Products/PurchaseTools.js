@@ -170,7 +170,7 @@ const PurchaseTools = () => {
                             <label class="label">
                                 <span class="label-text">Order Quantity</span>
                             </label>
-                            <input onChange={qty} type="text" placeholder="Min Quantity 100" defaultValue={100} required name='quantity' class="input input-bordered w-full max-w-xs" />
+                            <input onChange={qty} type="text" placeholder="Min Quantity 100" defaultValue={tool.minOrderQty} required name='quantity' class="input input-bordered w-full max-w-xs" />
                             <label class="label">
                                 {
                                     orderError && <span class="label-text-alt text-red-500"><BiErrorCircle className='inline mr-2' />{orderError}</span>

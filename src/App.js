@@ -13,6 +13,8 @@ import DashBoard from './Pages/DashBoard/DashBoard';
 import AddReview from './Pages/DashBoard/AddReview';
 import MyProfile from './Pages/DashBoard/MyProfile';
 import MakeAdmin from './Pages/DashBoard/MakeAdmin';
+import Welcome from './Pages/DashBoard/Welcome';
+import AddProducts from './Pages/DashBoard/AddProducts';
 
 
 function App() {
@@ -28,10 +30,12 @@ function App() {
           <PurchaseTools></PurchaseTools>
         </RequireAuth>}></Route>
         <Route path='/dashboard' element={<DashBoard></DashBoard>}>
-          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route index element={<Welcome></Welcome>}></Route>
+          <Route path='/dashboard/myorder' element={<MyOrder></MyOrder>}></Route>
           <Route path='/dashboard/addreview' element={<AddReview></AddReview>}></Route>
           <Route path='/dashboard/myprofile' element={<MyProfile></MyProfile>}></Route>
           <Route path='/dashboard/makeadmin' element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route path='/dashboard/addproduct' element={<AddProducts></AddProducts>}></Route>
         </Route>
       </Routes>
       <Footer></Footer>
