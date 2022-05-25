@@ -12,6 +12,7 @@ import MyOrder from './Pages/DashBoard/MyOrder';
 import DashBoard from './Pages/DashBoard/DashBoard';
 import AddReview from './Pages/DashBoard/AddReview';
 import MyProfile from './Pages/DashBoard/MyProfile';
+import MakeAdmin from './Pages/DashBoard/MakeAdmin';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route index element={<MyOrder></MyOrder>}></Route>
           <Route path='/dashboard/addreview' element={<AddReview></AddReview>}></Route>
           <Route path='/dashboard/myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='/dashboard/makeadmin' element={<MakeAdmin></MakeAdmin>}></Route>
         </Route>
       </Routes>
       <Footer></Footer>

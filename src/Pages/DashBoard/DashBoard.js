@@ -3,6 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineRateReview } from "react-icons/md";
 import { AiOutlineGift } from "react-icons/ai";
+import { RiAdminLine } from "react-icons/ri";
 
 const DashBoard = () => {
     return (
@@ -19,6 +20,7 @@ const DashBoard = () => {
                         <li><Link className='font-normal' to='/dashboard'><AiOutlineGift/>My Order</Link></li>
                         <li><Link className='font-normal' to='/dashboard/addreview'><MdOutlineRateReview className='mt-1'/>Add a Review</Link></li>
                         <li><Link className='font-normal' to='/dashboard/myprofile'><CgProfile/>My Profile</Link></li>
+                        <li><Link className='font-normal' to='/dashboard/makeadmin'><RiAdminLine/>Make Admin</Link></li>
                     </ul>
                 </div>
             </div>

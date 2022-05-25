@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init"
@@ -9,6 +9,7 @@ import { MdExitToApp } from "react-icons/md";
 
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
+    
     const handleSignout = () => {
         signOut(auth);
     };
@@ -22,7 +23,7 @@ const Navbar = () => {
 
         }
         {
-            user && <li><Link to='/dashboard/myprofile'><CgProfile/>{user.displayName}</Link></li>
+            user && <li><Link to='/dashboard/myprofile'><CgProfile/>{user?.displayName}</Link></li>
         }
         {
             user ? <li><Link onClick={handleSignout} to='/login'>
