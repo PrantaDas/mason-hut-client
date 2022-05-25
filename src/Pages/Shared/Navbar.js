@@ -9,7 +9,7 @@ import { MdExitToApp } from "react-icons/md";
 
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
-    
+
     const handleSignout = () => {
         signOut(auth);
     };
@@ -17,20 +17,22 @@ const Navbar = () => {
         return (<p className='text-primary'>Loading....</p>)
     }
     const navItems = <>
+        <li><Link to='/blogs'>Blogs</Link></li>
 
         {
             user && <li><Link to='/dashboard'>Dashboard</Link></li>
 
         }
         {
-            user && <li><Link to='/dashboard/myprofile'><CgProfile/>{user?.displayName}</Link></li>
+            user && <li><Link to='/dashboard/myprofile'><CgProfile />{user?.displayName}</Link></li>
         }
         {
             user ? <li><Link onClick={handleSignout} to='/login'>
-                Signout<MdExitToApp/>
+                Signout<MdExitToApp />
             </Link> </li>
                 : <li><Link to='/login'>Login</Link></li>
         }
+
 
     </>;
 
