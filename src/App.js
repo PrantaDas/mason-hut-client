@@ -16,6 +16,7 @@ import MakeAdmin from './Pages/DashBoard/MakeAdmin';
 import Welcome from './Pages/DashBoard/Welcome';
 import AddProducts from './Pages/DashBoard/AddProducts';
 import ManageProducts from './Pages/DashBoard/ManageProducts';
+import NotFound from './Pages/NotFound/NotFound';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path='/dashboard/addproduct' element={<AddProducts></AddProducts>}></Route>
           <Route path='/dashboard/manageproduct' element={<ManageProducts></ManageProducts>}></Route>
         </Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
