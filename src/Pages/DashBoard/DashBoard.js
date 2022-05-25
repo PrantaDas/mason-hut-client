@@ -9,6 +9,7 @@ import auth from '../../firebase.init';
 import useAdmin from '../Hooks/useAdmin';
 import useUser from '../Hooks/useUser'
 import { MdAddCircleOutline,MdOutlineEditRoad } from "react-icons/md";
+import { RiListUnordered } from "react-icons/ri";
 
 const DashBoard = () => {
     const [user, loading] = useAuthState(auth);
@@ -43,6 +44,7 @@ const DashBoard = () => {
                                 <li><Link className='font-normal' to='/dashboard/makeadmin'><RiAdminLine />Make Admin</Link></li>
                                 <li><Link className='font-normal' to='/dashboard/addproduct'><MdAddCircleOutline />Add Product</Link></li>
                                 <li><Link className='font-normal' to='/dashboard/manageproduct'><MdOutlineEditRoad />Manage Products</Link></li>
+                                <li><Link className='font-normal' to='/dashboard/manageorders'><RiListUnordered />Manage Orders</Link></li>
                             </>
                         }
                     </ul>

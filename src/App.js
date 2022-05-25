@@ -18,6 +18,7 @@ import AddProducts from './Pages/DashBoard/AddProducts';
 import ManageProducts from './Pages/DashBoard/ManageProducts';
 import NotFound from './Pages/NotFound/NotFound';
 import Payment from './Pages/DashBoard/Payment';
+import ManageOrders from './Pages/DashBoard/ManageOrders';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path='/dashboard/makeadmin' element={<MakeAdmin></MakeAdmin>}></Route>
           <Route path='/dashboard/addproduct' element={<AddProducts></AddProducts>}></Route>
           <Route path='/dashboard/manageproduct' element={<ManageProducts></ManageProducts>}></Route>
+          <Route path='/dashboard/manageorders' element={<ManageOrders></ManageOrders>}></Route>
         </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>

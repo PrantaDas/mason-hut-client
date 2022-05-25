@@ -7,7 +7,7 @@ const OrderRow = ({ order, index, setDeleteorder, refetch }) => {
             <th>{index + 1}</th>
             <td>{order.productName}</td>
             <td>{order.totalPrice}</td>
-            <td className='font-mono'>PENDING</td>
+            <td className='font-mono'>{order.status ? 'SHIPPED' :'PENDING'}</td>
             <td>{order.transactionId ||'Not Paid Yet'}</td>
             <td>
                 {
