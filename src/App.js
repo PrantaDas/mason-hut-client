@@ -15,6 +15,7 @@ import MyProfile from './Pages/DashBoard/MyProfile';
 import MakeAdmin from './Pages/DashBoard/MakeAdmin';
 import Welcome from './Pages/DashBoard/Welcome';
 import AddProducts from './Pages/DashBoard/AddProducts';
+import ManageProducts from './Pages/DashBoard/ManageProducts';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path='/dashboard/myprofile' element={<MyProfile></MyProfile>}></Route>
           <Route path='/dashboard/makeadmin' element={<MakeAdmin></MakeAdmin>}></Route>
           <Route path='/dashboard/addproduct' element={<AddProducts></AddProducts>}></Route>
+          <Route path='/dashboard/manageproduct' element={<ManageProducts></ManageProducts>}></Route>
         </Route>
       </Routes>
       <Footer></Footer>

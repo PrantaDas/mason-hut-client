@@ -8,7 +8,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import useAdmin from '../Hooks/useAdmin';
 import useUser from '../Hooks/useUser'
-import { MdAddCircleOutline } from "react-icons/md";
+import { MdAddCircleOutline,MdOutlineEditRoad } from "react-icons/md";
 
 const DashBoard = () => {
     const [user, loading] = useAuthState(auth);
@@ -42,6 +42,7 @@ const DashBoard = () => {
                             admin && <>
                                 <li><Link className='font-normal' to='/dashboard/makeadmin'><RiAdminLine />Make Admin</Link></li>
                                 <li><Link className='font-normal' to='/dashboard/addproduct'><MdAddCircleOutline />Add Product</Link></li>
+                                <li><Link className='font-normal' to='/dashboard/manageproduct'><MdOutlineEditRoad />Manage Products</Link></li>
                             </>
                         }
                     </ul>
