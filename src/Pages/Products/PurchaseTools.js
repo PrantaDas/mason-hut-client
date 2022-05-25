@@ -11,7 +11,7 @@ const PurchaseTools = () => {
 
     const [orderError, setOrderError] = useState('');
 
-    const [userQuantity, setUserQuantity] = useState('');
+    
 
 
 
@@ -28,6 +28,7 @@ const PurchaseTools = () => {
         // console.log('res', res);
         return res.json()
     }));
+    const [userQuantity, setUserQuantity] = useState(tool.minOrderQty);
 
 
 
@@ -79,7 +80,7 @@ const PurchaseTools = () => {
         };
 
         const order = {
-            name:event.target.name.value,
+            name: event.target.name.value,
             productName: tool.name,
             email: user.email,
             orderQuantity: userQuantity,
