@@ -10,18 +10,22 @@ const MyProfile = () => {
 
     const email = user?.email;
 
-    const { data: userProfile, isLoading, refetch,isRefetchError } = useQuery(['userProfile', email], () => fetch(`https://cryptic-beach-33503.herokuapp.com/user/${email}`, {
+    const [intervalMs, setIntervalMs] = useState(1000)
+
+    const { data: userProfile, isLoading, refetch, isRefetchError } = useQuery(['userProfile', email], () => fetch(`https://cryptic-beach-33503.herokuapp.com/user/${email}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
         }
-    }).then(res => res.json()));
+    }).then(res => res.json()), {
+        refetchInrerval: intervalMs
+    });
 
 
     if (loading || isLoading) {
         return (<p className='text-primary'>Loading....</p>)
     }
-    if(isRefetchError){
+    if (isRefetchError) {
         console.log(isRefetchError);
     }
 
