@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { BiErrorCircle } from "react-icons/bi";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-
 import { toast } from 'react-toastify';
 
 const PurchaseTools = () => {

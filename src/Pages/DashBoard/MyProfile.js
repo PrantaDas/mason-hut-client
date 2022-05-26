@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 
 const MyProfile = () => {
@@ -46,14 +47,18 @@ const MyProfile = () => {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(myProfile)
         })
             .then(res => res.json())
             .then = (data => {
-                console.log(data);
-                refetch();
+                // console.log(data);
                 event.target.reset();
+                refetch();
+                toast.success('Succesfully updated profile',{
+                    theme:'colored'
+                })
             })
 
         console.log(myProfile);
