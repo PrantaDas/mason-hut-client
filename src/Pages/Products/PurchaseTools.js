@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import { useQuery } from 'react-query';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useQueryCache, useQuery, QueryCache } from 'react-query';
+import { useParams } from 'react-router-dom';
 import { BiErrorCircle } from "react-icons/bi";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { signOut } from 'firebase/auth';
-import { ToastContainer, toast } from 'react-toastify';
+
+import { toast } from 'react-toastify';
 
 const PurchaseTools = () => {
     const { id } = useParams();
 
     const [orderError, setOrderError] = useState('');
 
-    
+    // const queryCache = useQueryCache();
 
-
+    const queryCache = new QueryCache();
 
     const [user, loading] = useAuthState(auth);
+
 
 
     const { data: tool, isLoading, refetch } = useQuery(['tool', id], () => fetch(`https://cryptic-beach-33503.herokuapp.com/tools/${id}`, {
@@ -31,7 +32,7 @@ const PurchaseTools = () => {
     }));
     const [userQuantity, setUserQuantity] = useState('');
 
-
+    queryCache.clear();
 
     if (isLoading || loading) {
         return (<p className='text-secondary'>Loading....</p>)
@@ -106,6 +107,7 @@ const PurchaseTools = () => {
                 console.log(data);
                 event.target.reset();
                 refetch();
+
             })
 
 
@@ -119,8 +121,8 @@ const PurchaseTools = () => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success('Your order has been successfully placed',{
-                    theme:'colored'
+                toast.success('Your order has been successfully placed', {
+                    theme: 'colored'
                 })
                 console.log(data);
                 event.target.reset();
@@ -136,10 +138,10 @@ const PurchaseTools = () => {
             <div className='max-w-screen-2xl lg:flex lg:justify-center items-center'>
                 <div class="card w-96 bg-base-100 shadow-xl mx-auto">
                     <figure class="px-10 pt-10">
-                        <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" class="rounded-xl" />
+                        {/* <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" class="rounded-xl" /> */}
                     </figure>
                     <div class="card-body items-center text-center">
-                        <h2 class="card-title">{tool.name}</h2>
+                        <h2 class="card-title font-bold text-success text-2xl">{tool.name}</h2>
                         <p>{tool.description}</p>
                         <p><span className='text-success font-bold'>Min. Order Quantity: </span>{tool.minOrderQty}</p>
                         <p><span className='text-success font-bold'>Available Quantity: </span>{tool.availableQty}</p>
