@@ -12,7 +12,13 @@ const ManageOrders = () => {
     const [confirm, setConfirm] = useState(null);
 
     useEffect(() => {
-        fetch('https://cryptic-beach-33503.herokuapp.com/order')
+        fetch('https://cryptic-beach-33503.herokuapp.com/order',{
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+        })
             .then(res => res.json())
             .then(data => {
                 setOrders(data);

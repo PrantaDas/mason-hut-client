@@ -37,7 +37,7 @@ const DeleteProductModal = ({ deleteProduct, setDeleteProduct, refetch }) => {
             <input type="checkbox" id="my-modal-6" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
-                    <h3 class="font-bold text-lg">Are you sure to Delete <span className='text-primary'>{name}{_id}</span> ?</h3>
+                    <h3 class="font-bold text-lg">Are you sure to Delete <span className='text-primary'>{name}</span> ?</h3>
                     <p class="py-4">Once you Delete the product you cannot retrive it!</p>
                     <div class="modal-action">
                         <button onClick={() => handleDeleteProduct(_id)} className='btn btn-xs'>Delete</button>
