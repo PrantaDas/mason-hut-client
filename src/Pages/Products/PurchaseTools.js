@@ -136,9 +136,9 @@ const PurchaseTools = () => {
             <div class="divider my-5"></div>
             <div className='max-w-screen-2xl lg:flex lg:justify-center items-center'>
                 <div class="card w-96 bg-base-100 shadow-xl mx-auto">
-                    <figure class="px-10 pt-10">
-                        {/* <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" class="rounded-xl" /> */}
-                    </figure>
+                    {/* <figure class="px-10 pt-10">
+                        <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" class="rounded-xl" />
+                    </figure> */}
                     <div class="card-body items-center text-center">
                         <h2 class="card-title font-bold text-success text-2xl">{tool.name}</h2>
                         <p>{tool.description}</p>

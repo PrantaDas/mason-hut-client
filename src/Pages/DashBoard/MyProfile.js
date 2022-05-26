@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
@@ -10,7 +10,7 @@ const MyProfile = () => {
 
     const email = user?.email;
 
-    const { data: userProfile, isLoading, refetch } = useQuery(['userProfile', email], () => fetch(`https://cryptic-beach-33503.herokuapp.com/user/${email}`, {
+    const { data: userProfile, isLoading, refetch,isRefetchError } = useQuery(['userProfile', email], () => fetch(`https://cryptic-beach-33503.herokuapp.com/user/${email}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -18,10 +18,12 @@ const MyProfile = () => {
     }).then(res => res.json()));
 
 
-    if(loading||isLoading){
+    if (loading || isLoading) {
         return (<p className='text-primary'>Loading....</p>)
     }
-
+    if(isRefetchError){
+        console.log(isRefetchError);
+    }
 
     const handleUpdateProfile = (event) => {
 
@@ -53,15 +55,17 @@ const MyProfile = () => {
         })
             .then(res => res.json())
             .then = (data => {
-                // console.log(data);
-                event.target.reset();
-                refetch();
-                toast.success('Succesfully updated profile',{
-                    theme:'colored'
-                })
+                if (data.modifiedCount) {
+                    event.target.reset();
+                    console.log(data);
+                    refetch();
+                    toast.success('Succesfully updated profile', {
+                        theme: 'colored'
+                    })
+                }
             })
 
-        console.log(myProfile);
+        // console.log(myProfile);
     };
 
     return (
@@ -165,7 +169,7 @@ const MyProfile = () => {
                             <label class="label">
                                 <span class="label-text">Linkedin Profile</span>
                             </label>
-                            <input type="text" placeholder="Type here"  name='linkedin' class="input input-bordered w-full max-w-xs" />
+                            <input type="text" placeholder="Type here" name='linkedin' class="input input-bordered w-full max-w-xs" />
                             <label class="label">
                             </label>
                         </div>
