@@ -38,7 +38,7 @@ const AddProducts = () => {
                     console.log(tool);
 
                     const email = user?.email;
-                    fetch(`http://localhost:5000/addproduct/${email}`, {
+                    fetch(`https://cryptic-beach-33503.herokuapp.com/addproduct/${email}`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

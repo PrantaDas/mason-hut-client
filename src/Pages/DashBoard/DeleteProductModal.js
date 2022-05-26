@@ -16,7 +16,7 @@ const DeleteProductModal = ({ deleteProduct, setDeleteProduct, refetch }) => {
 
         const email = user?.email;
 
-        fetch(`http://localhost:5000/tools/delete/${id}`, {
+        fetch(`https://cryptic-beach-33503.herokuapp.com/tools/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

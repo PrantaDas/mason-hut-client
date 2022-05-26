@@ -20,7 +20,7 @@ const CheckoutForm = ({ order }) => {
     const [id, setId] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://cryptic-beach-33503.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -100,7 +100,7 @@ const CheckoutForm = ({ order }) => {
             };
 
 
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://cryptic-beach-33503.herokuapp.com/order/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

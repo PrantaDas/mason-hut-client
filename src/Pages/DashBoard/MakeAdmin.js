@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import UserRow from './UserRow';
 
 const MakeAdmin = () => {
-    const { data: user, isLoading, refetch } = useQuery('user', () => fetch('http://localhost:5000/user').then(res => res.json()));
+    const { data: user, isLoading, refetch } = useQuery('user', () => fetch('https://cryptic-beach-33503.herokuapp.com/user').then(res => res.json()));
 
     if (isLoading) {
         return (<p className='text-primary'>Loading...</p>)

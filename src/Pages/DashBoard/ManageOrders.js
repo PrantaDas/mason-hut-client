@@ -12,7 +12,7 @@ const ManageOrders = () => {
     const [confirm, setConfirm] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:5000/order')
+        fetch('https://cryptic-beach-33503.herokuapp.com/order')
             .then(res => res.json())
             .then(data => {
                 setOrders(data);

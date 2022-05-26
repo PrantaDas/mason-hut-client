@@ -5,7 +5,7 @@ import ManageRow from './ManageRow';
 
 const ManageProducts = () => {
     const [deleteProduct,setDeleteProduct]=useState(null);
-    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('http://localhost:5000/tools').then(res => res.json()));
+    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('https://cryptic-beach-33503.herokuapp.com/tools').then(res => res.json()));
     if(isLoading){
         return (<p className='text-primary'>Loading...</p>)
     }

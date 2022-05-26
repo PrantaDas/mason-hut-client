@@ -11,7 +11,7 @@ const UserRow = ({ u, refetch, index }) => {
             admin: true
         };
 
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://cryptic-beach-33503.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -26,7 +26,7 @@ const UserRow = ({ u, refetch, index }) => {
             })
     };
 
-    const { data: singleUser, isLoading } = useQuery(['singleUser', email], () => fetch(`http://localhost:5000/user/${email}`, {
+    const { data: singleUser, isLoading } = useQuery(['singleUser', email], () => fetch(`https://cryptic-beach-33503.herokuapp.com/user/${email}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

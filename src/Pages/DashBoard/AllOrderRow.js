@@ -5,7 +5,7 @@ const AllOrderRow = ({ order, setisLoading, index, setdeleteLoading,setConfirm }
     const { productName, paid, _id, status } = order;
 
     const handleUpdateStatus = (id) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://cryptic-beach-33503.herokuapp.com/order/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

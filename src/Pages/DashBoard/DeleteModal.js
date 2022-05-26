@@ -3,7 +3,7 @@ import React from 'react';
 const DeleteModal = ({setConfirm,setdeleteLoading,confirm}) => {
     const {_id,productName,paid,status}=confirm;
     const handleDeleteOrder = (id) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://cryptic-beach-33503.herokuapp.com/order/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

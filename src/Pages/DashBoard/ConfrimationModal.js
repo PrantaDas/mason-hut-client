@@ -5,7 +5,7 @@ const ConfrimationModal = ({ deleteOrder, setDeleteorder, refetch }) => {
     const { _id, productName } = deleteOrder;
 
     const handleCancelOrder = (id) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://cryptic-beach-33503.herokuapp.com/order/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

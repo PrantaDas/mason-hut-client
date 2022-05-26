@@ -19,7 +19,7 @@ const PurchaseTools = () => {
     const [user, loading] = useAuthState(auth);
 
 
-    const { data: tool, isLoading, refetch } = useQuery(['tool', id], () => fetch(`http://localhost:5000/tools/${id}`, {
+    const { data: tool, isLoading, refetch } = useQuery(['tool', id], () => fetch(`https://cryptic-beach-33503.herokuapp.com/tools/${id}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -93,7 +93,7 @@ const PurchaseTools = () => {
         console.log(order);
 
         setOrderError('');
-        fetch(`http://localhost:5000/tools/${id}`, {
+        fetch(`https://cryptic-beach-33503.herokuapp.com/tools/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -109,7 +109,7 @@ const PurchaseTools = () => {
             })
 
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://cryptic-beach-33503.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -16,7 +16,7 @@ const MyOrder = () => {
 
     const email = user?.email;
 
-    const { data: orders, isLoading, refetch } = useQuery(['orders', email], () => fetch(`http://localhost:5000/myorder?email=${email}`, {
+    const { data: orders, isLoading, refetch } = useQuery(['orders', email], () => fetch(`https://cryptic-beach-33503.herokuapp.com/myorder?email=${email}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

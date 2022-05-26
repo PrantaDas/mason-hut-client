@@ -9,7 +9,7 @@ const MyProfile = () => {
 
     const email = user?.email;
 
-    const { data: userProfile, isLoading, refetch } = useQuery(['userProfile', email], () => fetch(`http://localhost:5000/user/${email}`, {
+    const { data: userProfile, isLoading, refetch } = useQuery(['userProfile', email], () => fetch(`https://cryptic-beach-33503.herokuapp.com/user/${email}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
@@ -42,7 +42,7 @@ const MyProfile = () => {
             linkedin
         };
 
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://cryptic-beach-33503.herokuapp.com/user/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

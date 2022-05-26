@@ -4,7 +4,7 @@ import ReviewCard from './ReviewCard';
 
 const Review = () => {
 
-    const { data: review, isLoading, refetch } = useQuery('review', () => fetch('http://localhost:5000/review').then(res => res.json()));
+    const { data: review, isLoading, refetch } = useQuery('review', () => fetch('https://cryptic-beach-33503.herokuapp.com/review').then(res => res.json()));
 
     if (isLoading) {
         return (<p className='text-pirmary'>Loading...</p>)

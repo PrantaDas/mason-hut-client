@@ -9,7 +9,7 @@ const useUser=(user)=>{
         const email=user?.email;
 
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://cryptic-beach-33503.herokuapp.com/user/${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',

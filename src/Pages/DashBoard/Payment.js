@@ -13,7 +13,7 @@ import CheckoutForm from './CheckoutForm';
 
 const Payment = () => {
     const { id } = useParams();
-    const { data: order, isLoading, refetch } = useQuery(['order', id], () => fetch(`http://localhost:5000/order/${id}`, {
+    const { data: order, isLoading, refetch } = useQuery(['order', id], () => fetch(`https://cryptic-beach-33503.herokuapp.com/order/${id}`, {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
