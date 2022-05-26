@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddProducts = () => {
     const [user, loading] = useAuthState(auth);
@@ -47,6 +48,9 @@ const AddProducts = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
+                            toast.success('Product Added Successfully',{
+                                theme:'colored'
+                            })
                             console.log(data);
                             reset();
                         })

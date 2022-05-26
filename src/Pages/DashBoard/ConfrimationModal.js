@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ConfrimationModal = ({ deleteOrder, setDeleteorder, refetch }) => {
     const { _id, productName } = deleteOrder;
@@ -14,6 +15,9 @@ const ConfrimationModal = ({ deleteOrder, setDeleteorder, refetch }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                toast.success('Order cacelled successfully',{
+                    theme:'colored'
+                })
                 refetch();
                 setDeleteorder(null);
             })

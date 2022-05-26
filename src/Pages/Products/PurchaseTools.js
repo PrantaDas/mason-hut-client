@@ -5,6 +5,7 @@ import { BiErrorCircle } from "react-icons/bi";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
 
 const PurchaseTools = () => {
     const { id } = useParams();
@@ -28,7 +29,7 @@ const PurchaseTools = () => {
         // console.log('res', res);
         return res.json()
     }));
-    const [userQuantity, setUserQuantity] = useState(tool.minOrderQty);
+    const [userQuantity, setUserQuantity] = useState('');
 
 
 
@@ -118,6 +119,9 @@ const PurchaseTools = () => {
         })
             .then(res => res.json())
             .then(data => {
+                toast.success('Your order has been successfully placed',{
+                    theme:'colored'
+                })
                 console.log(data);
                 event.target.reset();
             })

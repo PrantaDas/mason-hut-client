@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
 
 const DeleteProductModal = ({ deleteProduct, setDeleteProduct, refetch }) => {
     const { _id, name } = deleteProduct;
@@ -24,6 +25,9 @@ const DeleteProductModal = ({ deleteProduct, setDeleteProduct, refetch }) => {
         }).then(res => res.json())
             .then(data => {
                 console.log(data);
+                toast.success('Successfully deleted', {
+                    theme: 'colored'
+                })
                 refetch();
                 setDeleteProduct(null);
             })
@@ -36,7 +40,7 @@ const DeleteProductModal = ({ deleteProduct, setDeleteProduct, refetch }) => {
                     <h3 class="font-bold text-lg">Are you sure to Delete <span className='text-primary'>{name}{_id}</span> ?</h3>
                     <p class="py-4">Once you Delete the product you cannot retrive it!</p>
                     <div class="modal-action">
-                        <button onClick={()=>handleDeleteProduct(_id)} className='btn btn-xs'>Delete</button>
+                        <button onClick={() => handleDeleteProduct(_id)} className='btn btn-xs'>Delete</button>
                         <label for="my-modal-6" class="btn btn-xs">CANCEL</label>
                     </div>
                 </div>
